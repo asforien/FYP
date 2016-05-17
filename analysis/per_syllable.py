@@ -22,7 +22,7 @@ with open('subjects', 'r',) as subjectFile:
 		subjectInterfaces[row[0]] = row[2]
 
 with open('transcriptions', 'r',) as transcriptionFile:
-	outputFile = open('individual.csv', 'w')
+	outputFile = open('syllable.csv', 'w')
 	writer = csv.writer(outputFile, delimiter=',')
 
 	reader = csv.reader(transcriptionFile, delimiter=',')

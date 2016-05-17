@@ -11,7 +11,7 @@ with open('answers', 'r',) as answerFile:
 	for row in reader:
 		answers[int(row[0])] = row[1]
 
-with open('random.csv', 'w') as outputFile:
+with open('syllable_random.csv', 'w') as outputFile:
 	writer = csv.writer(outputFile, delimiter=',')
 
 	for q3 in range(3,18):

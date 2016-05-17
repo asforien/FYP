@@ -62,8 +62,8 @@ for group in distributions:
 	for i in range(6):
 		correct += distributions[group][i][i]
 	print(group)
-	print(correct/total)
-	print(numTranscriptions[group] / 3)
+	print("Average score: " + str(correct/total))
+	print("Number of subjects: " + str(numTranscriptions[group] / 3))
 	print()
 
 with open('distribution.csv', 'w') as outputFile:
