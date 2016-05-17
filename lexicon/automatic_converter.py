@@ -5,17 +5,17 @@ onsets = {}
 nuclei = {}
 codas = {}
 
-with open('onset.csv', 'rb') as csvfile:
+with open('onset.csv', 'r') as csvfile:
 	reader = csv.DictReader(csvfile)
 	for row in reader:
 		onsets[row['Jyutping']] = (row['X-SAMPA'], row['Yale'])
 
-with open('nucleus.csv', 'rb') as csvfile:
+with open('nucleus.csv', 'r') as csvfile:
 	reader = csv.DictReader(csvfile)
 	for row in reader:
 		nuclei[row['Jyutping']] = (row['X-SAMPA'], row['Yale'])
 
-with open('coda.csv', 'rb') as csvfile:
+with open('coda.csv', 'r') as csvfile:
 	reader = csv.DictReader(csvfile)
 	for row in reader:
 		codas[row['Jyutping']] = (row['X-SAMPA'], row['Yale'])

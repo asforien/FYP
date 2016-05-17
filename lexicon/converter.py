@@ -5,23 +5,23 @@ onsets = {}
 nuclei = {}
 codas = {}
 
-with open('onset.csv', 'rb') as csvfile:
+with open('onset.csv', 'r') as csvfile:
 	reader = csv.DictReader(csvfile)
 	for row in reader:
 		onsets[row['Jyutping']] = (row['X-SAMPA'], row['Yale'])
 
-with open('nucleus.csv', 'rb') as csvfile:
+with open('nucleus.csv', 'r') as csvfile:
 	reader = csv.DictReader(csvfile)
 	for row in reader:
 		nuclei[row['Jyutping']] = (row['X-SAMPA'], row['Yale'])
 
-with open('coda.csv', 'rb') as csvfile:
+with open('coda.csv', 'r') as csvfile:
 	reader = csv.DictReader(csvfile)
 	for row in reader:
 		codas[row['Jyutping']] = (row['X-SAMPA'], row['Yale'])
 
 p = re.compile(r'([b-df-hj-np-tvwxz]*)([aeiou]{1,3}|yu|m|ng)(ng|[ptkmn])?([1-6])')
-inp = raw_input('Enter Jyutping: ')
+inp = input('Enter Jyutping: ')
 m = p.findall(inp)
 
 # Check if input is valid Jyutping
@@ -29,7 +29,7 @@ validInput = True
 
 if len(m) is 0:
 	validInput = False
-	print 'No valid Jyutping found'
+	print('No valid Jyutping found')
 
 for match in m:
 	if (match[0] not in onsets or
@@ -37,7 +37,7 @@ for match in m:
 		match[2] not in codas or
 		match[3] is ''):
 			validInput = False
-			print 'Input is not valid:', ''.join(match)
+			print('Input is not valid:', ''.join(match))
 			break
 
 if validInput:
@@ -55,7 +55,7 @@ if validInput:
 	yale = jyu_p.sub('yu', yale)
 	yale = aa_p.sub(r'a\1', yale)
 
-	print yale,
+	print(yale)
 
 	xsampa = []
 	for match in m:
@@ -66,4 +66,4 @@ if validInput:
 		xsampa.append('.')
 	xsampa.pop()
 
-	print ' '.join(filter(None, xsampa))
+	print(' '.join(filter(None, xsampa)))
